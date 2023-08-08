@@ -95,7 +95,7 @@ ORDER BY amount;
 
 --10. Within the film table, how many rating categories are there? And what rating has the most
 --movies total?
---Answer: 5 rating categories, NC-17 has the most ratings at 210.
+--Answer: 5 rating categories, PG-13 has the most ratings at 223.
 
 SELECT COUNT(DISTINCT rating) 
 FROM film;
