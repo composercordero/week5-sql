@@ -43,11 +43,18 @@ ORDER BY first_name DESC;
 SELECT COUNT(first_name)
 FROM customer
 WHERE first_name LIKE 'Willie';
+-- WHERE first_name = 'Willie'; Would DO the same AS previous line
 
 
 --5. What store employee (get the id) sold the most rentals (use the rental table)?
---Answer:
+--Answer: Staff id 1 sold the most
 
+SELECT *
+FROM rental;
+
+SELECT staff_id, COUNT(staff_id)
+FROM rental
+GROUP BY staff_id;
 
 
 --6. How many unique district names are there?
