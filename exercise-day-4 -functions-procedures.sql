@@ -19,6 +19,10 @@ DROP PROCEDURE IF EXISTS add_film;
 
 CALL add_film('The Emperor''s New Grove', 'A Fanciful Documentary of a Frisbee And a Lumberjack who must Chase a Monkey in A Shark Tank', 2008, 1, 2, 4.99, 75, 15.99, 'PG');
 
+CALL add_film('The New Grove', 'A Fanciful Documentary of a Frisbee And a Lumberjack who must Chase a Monkey in A Shark Tank', 2008, 1, 2, 4.99, 75, 15.99, 'PG');
+
+CALL add_film('The Grove', 'A Fanciful Documentary of a Frisbee And a Lumberjack who must Chase a Monkey in A Shark Tank', 2008, 1, 2, 4.99, 75, 15.99, 'PG-13');
+
 SELECT *
 FROM film
 WHERE title LIKE 'The Emperor''s New Grove';
@@ -76,7 +80,7 @@ CREATE OR REPLACE FUNCTION table_num_of_films(cat_name VARCHAR)
 RETURNS TABLE (
 	category INTEGER,
 	name VARCHAR(45),
-	count_f VARCHAR(50)
+	count_f BIGINT
 )
 LANGUAGE plpgsql
 AS $$
@@ -89,12 +93,12 @@ BEGIN
 	JOIN film f 
 	ON fc.film_id = f.film_id
 	WHERE cat_name ILIKE c.name
-	GROUP BY c.category_id
+	GROUP BY c.category_id;
 END;
 $$;
 
 
-DROP FUNCTION IF EXISTS table_num_of_films(character_varying);
+DROP FUNCTION IF EXISTS table_num_of_films;
 
 SELECT *
 FROM table_num_of_films('classics');
