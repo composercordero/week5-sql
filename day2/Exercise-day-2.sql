@@ -74,6 +74,8 @@ ADD FOREIGN KEY(payment_id) REFERENCES payment(payment_id);
 -- Did this add another FK or erase the previous one? I think it added as shown in the database.
 -- I erased it manually.
 
+-- To drop a foreign key ALTER TABLE table_name DROP CONSTRAINT tablename_colname_fkey
+
 CREATE TABLE payment(
 	payment_id SERIAL PRIMARY KEY,
 	amount INTEGER NOT NULL,
@@ -82,6 +84,7 @@ CREATE TABLE payment(
 	FOREIGN KEY(ticket_id) REFERENCES ticket(ticket_id)	
 );
 
+
 ALTER TABLE payment
 DROP COLUMN rating;
 
@@ -89,4 +92,20 @@ SELECT * FROM movie;
 SELECT * FROM theater;
 
 
+SELECT * FROM customer;
 
+INSERT INTO customer (
+	first_name,
+	last_name,
+	email_address,
+	age,
+	ticket_id,
+	payment_id
+) VALUES (
+	'Carlos',
+	'Cordero',
+	'fake@email.com',
+	32,
+	1,
+	1
+);

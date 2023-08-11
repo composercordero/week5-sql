@@ -25,7 +25,8 @@ WHERE district LIKE 'Texas';
 --2. List all payments of more than $7.00 with the customer’s first and last name
 
 
-SELECT first_name, last_name, p.amount  FROM customer c
+SELECT first_name, last_name, p.amount  
+FROM customer c
 JOIN payment p
 ON c.customer_id = p.customer_id
 WHERE amount > 7;
