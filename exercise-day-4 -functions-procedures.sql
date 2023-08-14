@@ -80,7 +80,7 @@ CREATE OR REPLACE FUNCTION table_num_of_films(cat_name VARCHAR)
 RETURNS TABLE (
 	category INTEGER,
 	name VARCHAR(45),
-	count_f BIGINT
+	count_f BIGINT -- Why BIGINT = https://www.postgresql.org/docs/current/functions-aggregate.html
 )
 LANGUAGE plpgsql
 AS $$
